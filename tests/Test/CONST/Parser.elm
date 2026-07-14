@@ -16,6 +16,7 @@ suite =
                 , ( "123  ", Just (Program (Const 123)) )
                 , ( " 123", Just (Program (Const 123)) )
                 , ( "  123", Just (Program (Const 123)) )
+                , ( "123abc", Nothing )
                 , ( "onetwothree", Nothing )
                 ]
         ]

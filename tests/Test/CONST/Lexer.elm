@@ -14,6 +14,7 @@ suite =
                 [ ( "123", Just 123 )
                 , ( "123 ", Just 123 )
                 , ( "123  ", Just 123 )
+                , ( "123abc", Just 123 )
                 , ( " 123", Nothing )
                 , ( "onetwothree", Nothing )
                 ]
