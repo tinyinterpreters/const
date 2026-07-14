@@ -16,8 +16,8 @@ testValue f ( input, expectedOutput ) =
                     else
                         Expect.fail <|
                             Debug.toString
-                                { expected = Debug.toString expectedOutput
-                                , actual = Debug.toString value
+                                { expected = expectedOutput
+                                , actual = value
                                 }
 
                 Err e ->
