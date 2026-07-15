@@ -27,8 +27,8 @@
             }
 
             c () {
-              nix flake check -L
-              f --validate
+              nix flake check -L &&
+              f --validate &&
               t
             }
 
