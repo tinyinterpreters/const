@@ -15,7 +15,7 @@
           ];
 
           shellHook = ''
-            export PROJECT_ROOT="$PWD"
+            export PROJECT_ROOT="$(git rev-parse --show-toplevel)"
             export PS1="($name)\n$PS1"
 
             f () {
