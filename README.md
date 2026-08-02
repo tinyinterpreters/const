@@ -7,7 +7,7 @@ Read [CONST: The Structure of a Tiny Interpreter in Elm](https://blog.tinyinterp
 ```mermaid
 flowchart TD
     A["123"] -->|parse| B["Program (Const 123)"]
-    B -->|runProgram| C["VNumber 123"]
+    B -->|evaluate| C["VNumber 123"]
 ```
 
 ## Usage
@@ -60,11 +60,13 @@ source text → AST → value
 
 Although the language contains only constants, the project includes the same main parts that will remain as the language grows:
 
-* a grammar describing the concrete syntax
-* an AST representing the program
-* a parser that constructs the AST
-* an interpreter that evaluates it
+- a grammar that describes valid programs
+- a lexer that recognizes non-negative integer literals
+- an AST that represents the program in Elm
+- a parser that turns source text into an AST
+- evaluation logic that turns the AST into a value
+- tests that describe the behaviour of the language
 
 ## Tiny Interpreters
 
-CONST is the first interpreter in [Tiny Interpreters](https://blog.tinyinterpreters.dev), a blog about learning how programming languages work by building small interpreters in Elm.
+CONST is the first interpreter in [Tiny Interpreters](https://blog.tinyinterpreters.dev), a blog about learning how programming languages work by building tiny interpreters.
