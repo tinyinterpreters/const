@@ -1,8 +1,12 @@
 # CONST
 
-A tiny interpreter in Elm that evaluates non-negative integer constants and establishes the interpreter structure reused throughout Tiny Interpreters.
+CONST is the first [Tiny Interpreters](https://blog.tinyinterpreters.dev/) interpreter. A complete program is just a non-negative integer literal:
 
-Read [CONST: The Structure of a Tiny Interpreter in Elm](https://blog.tinyinterpreters.dev/posts/const) for a guided explanation of how it works.
+```txt
+123
+```
+
+That lets us follow a complete program from source text to an evaluated value:
 
 ```mermaid
 flowchart TD
@@ -10,18 +14,16 @@ flowchart TD
     B -->|evaluate| C["VNumber 123"]
 ```
 
-## Usage
+For a closer look at each step, read [CONST: From Source Text to Value](https://blog.tinyinterpreters.dev/posts/const/).
 
-You'll need [Nix](https://zero-to-nix.com/start/install/) with flakes enabled.
-
-Enter the development environment and start the Elm REPL:
+To try it, you'll need [Nix](https://zero-to-nix.com/start/install/) with flakes enabled.
 
 ```bash
 nix develop
 elm repl
 ```
 
-Import the interpreter and run a program:
+Then:
 
 ```elm
 import CONST.Interpreter as I
@@ -29,44 +31,3 @@ import CONST.Interpreter as I
 I.run "123"
 -- Ok (VNumber 123)
 ```
-
-## Language
-
-CONST supports one kind of expression: a non-negative integer constant.
-
-```txt
-123
-```
-
-The parser converts the source text into an abstract syntax tree:
-
-```elm
-Program (Const 123)
-```
-
-The interpreter then evaluates the AST to a value:
-
-```elm
-VNumber 123
-```
-
-## Interpreter structure
-
-CONST introduces the structure that the later interpreters build on:
-
-```txt
-source text → AST → value
-```
-
-Although the language contains only constants, the project includes the same main parts that will remain as the language grows:
-
-- a grammar that describes valid programs
-- a lexer that recognizes non-negative integer literals
-- an AST that represents the program in Elm
-- a parser that turns source text into an AST
-- evaluation logic that turns the AST into a value
-- tests that describe the behaviour of the language
-
-## Tiny Interpreters
-
-CONST is the first interpreter in [Tiny Interpreters](https://blog.tinyinterpreters.dev), a blog about learning how programming languages work by building tiny interpreters.
